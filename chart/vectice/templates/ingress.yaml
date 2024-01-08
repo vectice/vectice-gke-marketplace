@@ -1,0 +1,94 @@
+---
+{{- if .Values.ingress.enabled -}}
+{{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
+  {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
+  {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}
+  {{- end }}
+{{- end }}
+{{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: networking.k8s.io/v1
+{{- else if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: networking.k8s.io/v1beta1
+{{- else -}}
+apiVersion: extensions/v1beta1
+{{- end }}
+kind: Ingress
+metadata:
+  name: {{ include "vectice.fullname" . }}
+  labels:
+    {{- include "vectice.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/ingress.allow-http: "true"
+    {{- if eq .Values.global.cloudProvider "aws" }}
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.certificatearn }}
+    {{- end }}
+    {{- if eq .Values.global.cloudProvider "azure" }}
+    appgw.ingress.kubernetes.io/appgw-trusted-root-certificate: vectice-internal-ca
+    appgw.ingress.kubernetes.io/backend-hostname: vectice-internal-dns
+    appgw.ingress.kubernetes.io/backend-protocol: https
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/ingress.class: azure/application-gateway
+    {{- end }}
+    {{- if eq .Values.global.cloudProvider "gcp" }}
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    {{- end }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.global.appUrl }}
+    secretName: vectice-private-https 
+  rules:
+  - host: {{ .Values.global.appUrl }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: vectice-frontend
+            port:
+              number: 3000
+        path: /*
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: vectice-keycloak
+            port:
+              number: 4430
+        path: /auth/*
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: vectice-backend
+            port:
+              number: 4000
+        path: /api/*
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: vectice-backend
+            port:
+              number: 4000
+        path: /graphql
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: vectice-backend
+            port:
+              number: 4000
+        path: /subscriptions
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: vectice-backend
+            port:
+              number: 4000
+        path: /metadata/*
+        pathType: ImplementationSpecific
+{{- end }}

@@ -1,0 +1,8 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ include "vectice.fullname" . }}-internal-ca
+spec:
+  ca:
+    secretName: {{ include "vectice.fullname" . }}-internal-ca

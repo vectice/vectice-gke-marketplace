@@ -1,0 +1,34 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: "{{ .Release.Name }}"
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    app.kubernetes.io/name: "{{ .Release.Name }}"
+  annotations:
+    marketplace.cloud.google.com/deploy-info: '{"partner_id": "vectice", "product_id": "vectice", "partner_name": "vectice"}'
+spec:
+  descriptor:
+    type: vectice
+    version: '234.8.2'
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: "{{ .Release.Name }}"
+  addOwnerRef: true
+  componentKinds:
+  - group: ''
+    kind: PersistentVolumeClaim
+  - group: ''
+    kind: Secret
+  - group: ''
+    kind: Service
+  - group: apps
+    kind: Deployment
+  - group: apps
+    kind: Statefulset
+  - group: apps
+    kind: Ingress
+  - group: apps
+    kind: Configmaps
+  - group: apps
+    kind: Issuer

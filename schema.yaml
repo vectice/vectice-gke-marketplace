@@ -1,0 +1,116 @@
+x-google-marketplace:
+  schemaVersion: v2
+  applicationApiVersion: v1beta1
+  # The published version is required and MUST match the tag
+  # of the deployer image
+  publishedVersion: '234.8.2'
+  publishedVersionMetadata:
+    releaseNote: >-
+      Vectice release notes
+  images: {}
+
+properties:
+  name:
+    type: string
+    x-google-marketplace:
+      type: NAME
+      default: vectice
+  namespace:
+    type: string
+    x-google-marketplace:
+      type: NAMESPACE
+      default: vectice
+  global.appUrl:
+    type: string
+    description: Your future Vectice url
+    default: "myvecticeinstance.client.com" 
+  global.database.host:
+    type: string
+    description: Your SQL Instance Private IP address
+    default: 1.1.1.1
+  global.database.username:
+    type: string
+    description: Your SQL Instance Username
+    default: db-user
+  global.database.password:
+    type: string
+    description: Your SQL Instance Password
+    default: db-password
+  global.database.ssl.key:
+    type: string
+    description: Your SQL Instance private SSL Key
+    default: |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEpAIBAAKCAQEAjh1smY5UQazxY+u10fiA7y+3GNB90qLircaePeDqOmzo8tfb
+      DPOmyI2MuqmVEDnRJomzmrkRj+lrQtbvYoaP13tjyOA+d/F/1BD8ZaN2v9IR/Qzr
+      -----END RSA PRIVATE KEY-----
+  global.database.ssl.cert:
+    type: string
+    description: Your SQL Instance private SSL Certificate
+    default: |
+      -----BEGIN CERTIFICATE-----
+      MIIDaTCCAlGgAwIBAgIERVSyJTANBgkqhkiG9w0BAQsFADCBgzEtMCsGA1UELhMk
+      j+eUpqsGYDTHS0qXrQ==
+      -----END CERTIFICATE-----
+  global.database.ssl.cacert:
+    type: string
+    description: Your SQL Instance private SSL Root Certificate
+    default: |
+      -----BEGIN CERTIFICATE-----
+      MIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyRlMzlm
+      -----END CERTIFICATE-----
+  backend.adminEmail: 
+    type: string
+    description: Your initial Admin user.
+    default: admin@client.com
+  backend.defaultPassword: 
+    type: string
+    description: Your initial Admin password
+    default: ezfezEEEjff45dvd!!!!de
+  backend.projectStorage.gcp.jsonkey:
+    type: string
+    description: Your JSON key to access your Vectice GCS Bucket, encoded in base64
+    default: ewogr54r654g654rgrrhreglnkguirehgrheguihreuihuirehguihvnez
+  backend.projectStorage.bucket:
+    type: string
+    description: Your Vectice GCS Bucket
+    default: my-vectice-bucket
+  backend.smtpTransporter:
+    type: string
+    description: Enable email notifications or not, set to true or false
+    default: 'true'
+  backend.smtpOptions.host:
+    type: string
+    description: Your SMTP host. eg. smtp.google.com
+    default: smtp.example.net
+  backend.smtpOptions.port:
+    type: string
+    description: Your SMTP port. eg. 2525
+    default: '465'
+  backend.smtpOptions.user:
+    type: string
+    description: Your SMTP user. eg. admin
+    default: 'apikey'
+  backend.smtpOptions.password:
+    type: string
+    description: Your SMTP password. eg. MySuperPassword123!
+    default: d4vsd4v65d46ds654564vdsdvd45464
+  backend.smtpOptions.secure:
+    type: string
+    description: Set to true to enable HTTPS protocol, or false for HTTP protocol
+    default: 'true'
+required:
+- name
+- namespace
+- global.appUrl
+- global.database.host
+- global.database.username
+- global.database.password
+- global.database.ssl.key
+- global.database.ssl.cert
+- global.database.ssl.cacert
+- backend.adminEmail  
+- backend.defaultPassword  
+- backend.projectStorage.gcp.jsonkey
+- backend.projectStorage.bucket
+- backend.smtpTransporter

@@ -1,0 +1,22 @@
+Congratulations, Vectice has been deployed on your cluster !
+
+{{ if .Values.ingress.enabled }}
+To access the UI, please go to :
+{{- range $host := .Values.ingress.hosts }}
+  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ $host.host }}
+{{- end }}
+{{- end }}
+
+{{ if (index .Values "sdk-documentation").ingress.enabled }}
+To access the SDK documentation, please go to :
+{{- range $host := (index .Values "sdk-documentation").ingress.hosts }}
+  {{- range .paths }}
+  http{{ if (index $.Values "sdk-documentation").ingress.tls }}s{{ end }}://{{ $host.host }}
+  {{- end }}
+{{- end }}
+{{- end }}
+
+{{ $secret := (lookup "v1" "Secret" .Release.Namespace "vectice-backend") -}}
+{{- if $secret }}
+Please take note of the following hash salt as this is a very critical information for you if you encounter problems with the database : {{ $secret.data.METADATA_HASH_SALT | b64dec }}
+{{- end }}

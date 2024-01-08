@@ -1,0 +1,67 @@
+---
+global:
+  repository:
+    baseURL: gcr.io
+    # Project ID of the Container Repository. value is provided by Vectice team.
+    projectId: vectice-public
+    # Secrets that will be used to pull images, secret created before in documentation
+    secrets:
+      - vectice-gcr-secrets
+  openshift:
+    enabled: false
+  cloudProvider: "gcp"
+  # Database configuration
+  database:
+    # Host that will be used to communicate with the database
+    host: "localhost"
+    # Port that will be used to communicate with the database
+    port: 5432
+    # Username used to authenticate to the database
+    name: vectice
+    nameKeycloak: keycloak
+    username: ""
+    # Password used to authenticate to the database
+    password: ""
+    # Indicates if the communication with the database uses SSL or not
+    sslEnabled: true
+    ssl:
+      # Raw certificate key that will be used to communicate with the database
+      key: ""
+      # Raw certificate that will be used to communicate with the database
+      cert: ""
+      # Raw ca certificate that will be used to communicate with the database
+      cacert: ""
+  appUrl: ""
+  keycloak:
+    admin:
+      password: "MyVecticepassword123!"
+      user: "admin"
+    host:
+      internal: https://vectice-keycloak:4430
+    config:
+      session_idle_timeout: 2592000
+      session_max_lifespan: 2592000
+      access_token_lifespan: 604800
+
+# Backend subchart values
+backend:
+  # set the admin email value to the init user you want, that will also be an org admin. adminemail + defaultPassword values will be used at first connection 
+  adminEmail: vadmin@testclient.com
+  # String to override default password, the requirements are At least 8 characters, 1 upper case, 1 lower case, 1 digit and 1 special character
+  defaultPassword: Mydefault/548password
+  projectStorage:
+    gcp:
+      jsonkey: ""
+    # Replace projectStorage.bucket by the name of your Bucket or Container (for Azure)
+    bucket: my-amazing-vectice-bucket
+  smtpTransporter: "false"
+  smtpOptions:
+    host: "smtp.sengrid.net"
+    port: "465"
+    secure: "true"
+    user: "apikey"
+    password: ""
+
+ingress:
+  cloudProvider: "gcp" 
+  enabled: true
