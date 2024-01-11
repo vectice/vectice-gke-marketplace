@@ -25,10 +25,10 @@ spec:
   - group: apps
     kind: Deployment
   - group: apps
-    kind: Statefulset
+    kind: StatefulSet
   - group: apps
     kind: Ingress
   - group: apps
-    kind: Configmaps
+    kind: ConfigMap
   - group: apps
     kind: Issuer
