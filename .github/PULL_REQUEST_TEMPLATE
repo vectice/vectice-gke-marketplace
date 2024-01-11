@@ -1,0 +1,14 @@
+## Type of Change
+
+- [ ] **CI**: Content in the CI/CD workflows
+- [ ] **Helm**: Templates or values to deploy Vectice full stack 
+- [ ] **Terraform**: Creations of Infrastructure on GCP
+- [ ] **Documentation**: Update on User Guide or documentation in helm templates
+
+## Description
+
+
+Summary of changes:
+
+<!-- Please add a detailed description of what this PR does and why it is needed -->
+

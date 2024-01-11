@@ -7,7 +7,25 @@ x-google-marketplace:
   publishedVersionMetadata:
     releaseNote: >-
       Vectice release notes
-  images: {}
+  images: 
+    frontend:
+      properties:
+        imageFrontendTag:
+          type: TAG
+        imageFrontendRepo:
+          type: REPO_WITH_REGISTRY
+    backend:
+      properties:
+        imageBackendTag:
+          type: TAG
+        imageBackendRepo:
+          type: REPO_WITH_REGISTRY
+    keycloak:
+      properties:
+        imageFrontendTag:
+          type: TAG
+        imageBackendRepo:
+          type: REPO_WITH_REGISTRY
 
 properties:
   name:
@@ -20,14 +38,160 @@ properties:
     x-google-marketplace:
       type: NAMESPACE
       default: vectice
+  internal.ca.key:
+    type: string
+    description: Your internal CA Key used to secure inside communication
+    default: |
+      -----BEGIN PRIVATE KEY-----
+      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
+      BvGkx50V2Sn1VWn4Wqa0CmXIkXQQzAw=
+      -----END PRIVATE KEY-----
+  internal.ca.cert:
+    type: string
+    description: Your internal CA Cert used to secure inside communication
+    default: |
+      -----BEGIN CERTIFICATE-----
+      MIIFKjCCAxKgAwIBAgIUIluI21+1RFj8vjzSJLenO/WJRugwDQYJKoZIhvcNAQEL
+      BQAwHjEcMBoGA1UEAwwTdmVjdGljZS1pbnRlcm5hbC1jYTAeFw0yNDAxMDUxMzM2
+      MDRaFw0zNDAxMDIxMzM2MDRaMB4xHDAaBgNVBAMME3ZlY3RpY2UtaW50ZXJuYWwt
+      Y2EwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDZJiEiyVWj8KQXM+El
+      nc0a/lrOa35/ClX/yf0TJTCrOA/7RQ+LjnIxEOd23qngwZB5plQdDz1rMmIiNP6d
+      RBuJ4jemwLDhT+Ee7pmhJs5suibHN1uUO3nbMPXFzxqbVe4sxXzb0xx00SQaDnMV
+      vBNN4KArueTpFiphqVmRXDD/cuS/LDZ0Q7cSuWFkuxLT9VnldraH0D9flOuuJHuc
+      ce7L56zzQNofqNPN0x8TWA06Q075NuCW8/2CFCw3OcB1XWmH5x9XTApSjYrUIEYf
+      /6uVsedFY6LTwP+KvbyPieYa5zYpKP6t6n/jsc8/lbBfM3smKNXtdObbPP4jJ/WD
+      lve0V+jE4furoqYxrK85WpsZ085Ud11RbpgqdLBeEppJGzOVsgtTBbZ/KO+eKoKq
+      0XekLdxeYndQmHX2oYqT0HSDcSaieQ5XBUBBzyUWUySi/gPmqrbKLL1zGFhtCosY
+      HNjNvs/dbh7QdePX7htiOhH5nbTxpWtdXnpNhY4ZJzIFIaki97MHfeMCda0CUDv4
+      BOKlaWiihGF3I8LO/5GExbJer+rZjXENDRg220veLhaXPqWTEMqcS+b7bRUCVl3M
+      A9CplvvUNunxSSL4FyHnwoMl26OQj6ruKP/65kYxfjY2ez3InOpklY47tFgtZ2+V
+      8Gus7u3WwZGCE0vxnR/uEi64DQIDAQABo2AwXjAdBgNVHQ4EFgQU/lpTKVNp64f7
+      XXlmK9Y4u+bupqcwHwYDVR0jBBgwFoAU/lpTKVNp64f7XXlmK9Y4u+bupqcwDwYD
+      VR0TAQH/BAUwAwEB/zALBgNVHQ8EBAMCAgQwDQYJKoZIhvcNAQELBQADggIBABRe
+      8o09ooA9DLaPbSeBJB/LCE0KxjlxkcG7ZLy/SjbKcfeXaHH8uiW+zgH0H6zwCglK
+      KE8i8dKkriRmvzi52eosmMPmaHd9CMleUQpETueI76j5qtNjIpaNtG2qmiRKpFim
+      EUp9Gl/g2b50aA+EqoS+LazWzvJ66PDgF2M14SSnerWKyMeK7HVZCMb/dbK6xvXh
+      OIy7J3y/R0MFUBIqL35Xsyfpa3DYFbihJbbO40plb7zYTd6ejyVQmzJq/yIyXrtC
+      9dBRR956/KkbiMpvefHRGLyK/VwWDa9m3LueMEfmvd01CpQVIVPEg2gxD+wveus8
+      vH69yl189lT/D1WZRScS1efJq74K93v+tqev3LR0XGemFbGwD2uWI4cljwbFXgFU
+      lLOOcWCST3qyYb77j8c1TveB+jPvkTPQTCt/KowAmLGulvGsvkBzmCDg2M5Yg+os
+      NeHysx3CDcyp3hKYMgwHZX7uBInKHoPFcOQe6B6VSl283+PSOjnZdCGeChajUshO
+      bcbX1YWbvRDeaxHlZI8S2LG5xlLFziBoiPQ62Xj4wMZgk2PFHrJFAItMQhzYDtA3
+      4p32a9iowTS/zx1tNOcRtaGPksGxALLszWqCN86GxbHVW2YjY0cIwyFR1rNaEFc4
+      LkCMJBF1JOwDva3z4nLSip1nJo9nBROI91ZTD8VG
+      -----END CERTIFICATE-----
+  internal.ingress.key:
+    type: string
+    description: Your internal ingress Key used to secure incoming communication
+    default: |
+      -----BEGIN PRIVATE KEY-----
+      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDbsIOYcPsRRuKh
+      HgPOJd3v06yWuE8vQP0fyzleSJKaqMaiahP0aZoYOr7IGgFsLksW1+ieuDZszme/
+      U0G4AAYRiJQwsHEbKx4OmDgNvCD3tM1kUkuHq2oY0ByqcuFnls24Cw5+wyTUhXbK
+      eOxXRVvxq7cLg7NvatVVL1mW4mC79y9NZul8de1vARWmFGApCUNmcEe4tpOx34pY
+      Wf/8KduByDn8+UPaIdNTDIaJFhPeJiSbnJ+JE7vSE1dWm2rFixEIJeVf4dBeVoo6
+      FhrtPCwQZafb6Ht6gIdTIEHBrGNRc4KPW8/JtVVcljFNqo39y+/O9TQIHiYfa9CV
+      IN9OBLJhAgMBAAECggEARDufs8IriKMukoIjBm0mcG2bJjjahz+1HqHdEJaTyitv
+      flRaHEiMTsg4JyhEltgOBGtM2bc3WDYHbRoryD1hpSJ5fGHgz2Jl9Hx8tG9hAe6K
+      +ITC5sFrs4c30AzcS3NAM9BjUSXFE6jcS2ihZz2on/gIYzAllA5ncgzB06Y+C0LY
+      KKxFphSYkj0cF2Hzfpdmnf9fGwJFu0QjRl8vdu4vS0SslwqMjDKLmXuREMw+iZ6b
+      l+hyH8FaZnHr/EEnltaZqlcgCWk9wTUH38TxOyOS1w42gCneiXqVNY52fr0HJzbD
+      hB82OEekjeDysuYXXnuKOB+ee/Z/9ndUHKh8PKubEQKBgQD+HSSdeCmoi6FgX2zC
+      XSYDCF3vxV2yYO3R8AkIV+KpbUWIQLBxpgMpFZ7l6ZYT5l3V+BpQYXiiGRnde5w6
+      TKL6OQ9cjemzQrMRbce4y1zN73R0pPvbKJMXu6eAWQIQxum7LRdLVLPUeHLA3UaC
+      lbTzWdlirxKdwijB+I6TRFt0jQKBgQDdUfWTG9njSDF1jlENVTot7MfDFlS7qstU
+      SkCE3V5SS8xiIM8LpRVF0GxgHLxJ5VScYbtoRJoUbia7/pMhu3+IOhgATiYN9bwi
+      Rb/tJGpdx/xvysWnlcPZNaddRSeQLUUc9SR657UqJIZvrHw2triJ1kqVRh4CRXNR
+      xY03ouLCJQKBgQCFzDx6OUnd9985iiUO1dLs59vmIopqIMU3s+ZdoUC0KtfgnQcK
+      X/nsCPlIX0xpH/OqdN8OEbRdzU+kIbCpta5eh+rBtesmOulkNORjNZigygMMY85E
+      n8GLToAsgTEoOkPZDS3luSySo/Tv/dJhcYf8VgOzBTGNJS0mrMQNYIGzBQKBgBNw
+      K11sSMrJgG6OvVeqcJ2v+iuMPoztB0az7s68kpgvyBemQgkHysKC98HJRFBJMBE8
+      FDWoMNAyjHxec5W23hCc6Za9RmJbftaTwbOWSzFJa0Z2TL3XTYg6SiTK+hqTn0pX
+      zYht6V92LciJIa+8hKC2jX5m1iPk7af07d5BFCFxAoGAYhA+r0uefOd9BcsrXukz
+      zwHR2qPhjQpBrnFOWPDLoAJl7b95kdqHZY4eztU/IhQdNN9sl6XpP1qlMHxmEAOd
+      Q6eO/RuPD7UKhz6P60ImzkV7p5zAWovtDWPIqoFxs879/fhXhRuZmb6zPZCAf7zP
+      /4h3CjpDBdudWfiwesNAkKc=
+      -----END PRIVATE KEY-----
+  internal.ingress.cert:
+    type: string
+    description: Your internal ingress cert used to secure incoming communication
+    default: |
+      -----BEGIN CERTIFICATE-----
+      MIIDLzCCAhegAwIBAgIUM6K4X10d6j4hRbuVhjiYxdQNhkMwDQYJKoZIhvcNAQEL
+      BQAwJzElMCMGA1UEAwwcdGVzdC1tYXJrZXRwbGFjZS52ZWN0aWNlLmNvbTAeFw0y
+      NDAxMDkxNjU1MzNaFw0zNDAxMDYxNjU1MzNaMCcxJTAjBgNVBAMMHHRlc3QtbWFy
+      a2V0cGxhY2UudmVjdGljZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+      AoIBAQDbsIOYcPsRRuKhHgPOJd3v06yWuE8vQP0fyzleSJKaqMaiahP0aZoYOr7I
+      GgFsLksW1+ieuDZszme/U0G4AAYRiJQwsHEbKx4OmDgNvCD3tM1kUkuHq2oY0Byq
+      cuFnls24Cw5+wyTUhXbKeOxXRVvxq7cLg7NvatVVL1mW4mC79y9NZul8de1vARWm
+      FGApCUNmcEe4tpOx34pYWf/8KduByDn8+UPaIdNTDIaJFhPeJiSbnJ+JE7vSE1dW
+      m2rFixEIJeVf4dBeVoo6FhrtPCwQZafb6Ht6gIdTIEHBrGNRc4KPW8/JtVVcljFN
+      qo39y+/O9TQIHiYfa9CVIN9OBLJhAgMBAAGjUzBRMB0GA1UdDgQWBBRAd7MhyFmw
+      jM2z90CWVADv0xUUBjAfBgNVHSMEGDAWgBRAd7MhyFmwjM2z90CWVADv0xUUBjAP
+      BgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAOsUvBcJOchFHABvWf
+      ERVZTu+RoPKJoPaSuM9rFsfd49eI42lhMaOzJsjfIwtiTlx461CcsaWmPj3eEh9t
+      /omyljmTdIGE8TpAjc9u/iGWEbXtCLHmeEg3K4rnZSGierKCMs5zadViWuWZHOFV
+      XJZwfFcLu1dWmRVZyAByWEzrL9mWrBDOgkOehzxWSBsUY2PcdAQskfkITkEqbRYc
+      +dYrYkasGdY9d/RTOe39t7tAQatc+4nmidz174ZbWTFXUOJ8evb+cZSn6pQ8AexN
+      bDcCw7ib+e5ccqeJizO6pEy4ka0c7KJYKdil3P0xa2N1n6YGFKC7wwQQJuExsYE1
+      Om9E
+      -----END CERTIFICATE-----
   global.appUrl:
     type: string
     description: Your future Vectice url
-    default: "myvecticeinstance.client.com" 
+    default: "test-marketplace.vectice.com" 
   global.database.host:
     type: string
     description: Your SQL Instance Private IP address
-    default: 1.1.1.1
+    default: 10.211.0.4
   global.database.username:
     type: string
     description: Your SQL Instance Username
@@ -41,28 +205,86 @@ properties:
     description: Your SQL Instance private SSL Key
     default: |
       -----BEGIN RSA PRIVATE KEY-----
-      MIIEpAIBAAKCAQEAjh1smY5UQazxY+u10fiA7y+3GNB90qLircaePeDqOmzo8tfb
-      DPOmyI2MuqmVEDnRJomzmrkRj+lrQtbvYoaP13tjyOA+d/F/1BD8ZaN2v9IR/Qzr
+      MIIEpAIBAAKCAQEAmuK2n3YHTK8yz9j7h0/hsWM8I6jSR3fncsgoBkkwwO0M7QQ3
+      bxgZhoBOXvwIxDNPWc14zZs8pWebXFPqLyHICndysgarHklhPuZ9GAQ5gERWOc6b
+      caUsX2O5M6FN9SWnytAUVJzgG88A7xbu4XT44mDlM4Lk9CM0ivwTZ08DtzIzLmvJ
+      kmPOer4opXHHm1pi/a+ns8u51wRZdoxwOaGOXep9/uVPhbQT1IJFskDfSyIaSxjj
+      w7yj7Z2EN/9tFkGYhj+Nzb1c3Tk3PFz5zKL1f5gHbDkV4tLng0HbivLax3KArN+3
+      6S6HInyIuif766dNKcj91UPnIdLbdo6olBP9awIDAQABAoIBACGPLfKvKDW9YE0Y
+      vqc677P3xHgVhDpoCIYeSE3UXfPvaPWSDFDN7/nsow6BnYSleXQDyUEDech9AnSm
+      2f8MWsOpzfg06a7OR3vRhRlHEQ5xwB0WXyfomgyxFtfRA4sydYDERSNwOj7MQ2+K
+      kIfZSHQEeqUGn4Ume6QBqlKgFDYFGqN06RlEVa/Ak3tSRnviy2kb1HPRFJjbhpOU
+      OmyNawQeiv/pNf+aV035OG/5ebflx0QSo3JSEIgxNrfi7f4blAI+I4AXCHDM2hkm
+      hShOFwRVyvLUxVtWy3ejxyVrwNtYri85FQ3jZfhZO5Luje/I84ddNHpTSGOov6+X
+      1kmtYoECgYEA8QXAmPfafjKnJZo27G2DcXGiBUgftmUKo+3DycxFIUDq2ljXkaRB
+      cJ7PeCT0W9p7bUrqQvVA7Q1tMieXWU0wtIwOXmFWT5lYHk8eu+wB3eP8isL9mzEA
+      7juMUkHBxlxzTxdZagbSIKYvqp+MjtTf9NRrEYLiYKXuxTFO0yNBBdkCgYEApIKs
+      Z9/0fe1nSX/y2ux7hHE9tJlvk1jgxLGxd0BdlnptsvbjYI1bubQHx8LqjcytCWpx
+      H+yG6Zo1Pm36pgLfPSXai+dhj8rHX30rPAYRvpO7hJULvL9yX7VVgQsfXv+qXJCi
+      Wd+czKx8ZCiPAdC0iThdRudevHF8eQ8HetcDfuMCgYEAgZBUDmb+f2R/UclqyQG9
+      7RfmvuwckBIU/DZuT2aNquiY1zN2/oXL39yfLri+2znBq+jfsYrhkgzrrFB4HbtO
+      +V9owfeVTEjkg7aIkQC3qC5MrdNQPULEe0xrjDRpFFbSbavhlwt/nal4akJGbumk
+      Upp1y/4N72KDzmFJPFrxM1ECgYEAnWlf+KDlvB0OiNjCE1LWuZr1lTp/9bjEkdEJ
+      Y3cWVedd0jHEzd1U2HN4Ql+yue4P4IOWLRrQ2POyYMMxY+o5m7P904KZ6tH4Rdlq
+      JiwUjIulkS5gpcF2ejfz0d9HrEnsxFes0VxTF9Ev0VKxy+Xc6bQiJLc9AgmBNgD4
+      gkT81ksCgYBtV9Xv5zbjLLEWsSJNZhL8RfyB49DpxjLOdcykqjFcK9Zjnmofy5GV
+      ckEhi3k1IuUCHZScxvhQ3g3OeoMt6iaVHFHK/ijQcx+7SCK7rhf3wE2MzEkUM4x0
+      5purRgbyWRpF+ZThB9EQkeatGLuZVt64Oq/WTNcOcyK8qr3lYz80ow==
       -----END RSA PRIVATE KEY-----
   global.database.ssl.cert:
     type: string
     description: Your SQL Instance private SSL Certificate
     default: |
       -----BEGIN CERTIFICATE-----
-      MIIDaTCCAlGgAwIBAgIERVSyJTANBgkqhkiG9w0BAQsFADCBgzEtMCsGA1UELhMk
-      j+eUpqsGYDTHS0qXrQ==
+      MIIDaTCCAlGgAwIBAgIEYyTs8jANBgkqhkiG9w0BAQsFADCBgzEtMCsGA1UELhMk
+      MjgzMWRjYmQtNWJmMy00MGI1LWE3ZmQtMmM4NGY2MGUyNjhkMS8wLQYDVQQDEyZH
+      b29nbGUgQ2xvdWQgU1FMIENsaWVudCBDQSBjbGllbnQtY2VydDEUMBIGA1UEChML
+      R29vZ2xlLCBJbmMxCzAJBgNVBAYTAlVTMB4XDTI0MDEwNTA5NDczOVoXDTM0MDEw
+      MjA5NDgzOVowOTEUMBIGA1UEAxMLY2xpZW50LWNlcnQxFDASBgNVBAoTC0dvb2ds
+      ZSwgSW5jMQswCQYDVQQGEwJVUzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+      ggEBAJritp92B0yvMs/Y+4dP4bFjPCOo0kd353LIKAZJMMDtDO0EN28YGYaATl78
+      CMQzT1nNeM2bPKVnm1xT6i8hyAp3crIGqx5JYT7mfRgEOYBEVjnOm3GlLF9juTOh
+      TfUlp8rQFFSc4BvPAO8W7uF0+OJg5TOC5PQjNIr8E2dPA7cyMy5ryZJjznq+KKVx
+      x5taYv2vp7PLudcEWXaMcDmhjl3qff7lT4W0E9SCRbJA30siGksY48O8o+2dhDf/
+      bRZBmIY/jc29XN05Nzxc+cyi9X+YB2w5FeLS54NB24ry2sdygKzft+kuhyJ8iLon
+      ++unTSnI/dVD5yHS23aOqJQT/WsCAwEAAaMuMCwwCQYDVR0TBAIwADAfBgNVHREE
+      GDAWgRRjZGVzamFyc0B2ZWN0aWNlLmNvbTANBgkqhkiG9w0BAQsFAAOCAQEAPxDZ
+      j5ID5Bm50xQf65fx56pNJlcvG7ufoscOBML+mVuOUT1mSgskzu24ZJT1uRsvm96/
+      Z5QvpxBwqt8olYuMLR2lqpQfxJ4u11ehjXLtB8wcaLbAbL7qEEfquIMmR6Ry/XOs
+      FXw6o4Yf5CmTRZE2WvirFXxk2VMetNDpXp0T4l2XjYp9qvnBMcrXXZV/wbteqJFl
+      qskGik7jvIwBAG2ZlDiqm64vjYEmtAmOnuZ+mUCbzaTp7RRtFS+2qc+HdSg6qfzL
+      0BW2NBZ5272A2wUulAWmx17TW6ipL/1b2jbY77ga2YwQmOyBqXwr9hvT5pD1zlGy
+      TGCJRIDK52Sh4Z4OFw==
       -----END CERTIFICATE-----
   global.database.ssl.cacert:
     type: string
     description: Your SQL Instance private SSL Root Certificate
     default: |
       -----BEGIN CERTIFICATE-----
-      MIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyRlMzlm
+      MIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQ5YWY0
+      MGU2MS0yYTUzLTRiMTAtYjU0MC1mMGQwOTJhYjBmZTcxIzAhBgNVBAMTGkdvb2ds
+      ZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG
+      A1UEBhMCVVMwHhcNMjQwMTA1MDk0NDI0WhcNMzQwMTAyMDk0NTI0WjB3MS0wKwYD
+      VQQuEyQ5YWY0MGU2MS0yYTUzLTRiMTAtYjU0MC1mMGQwOTJhYjBmZTcxIzAhBgNV
+      BAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs
+      IEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+      AQCd5jdtunckW2n7Ko4e4aJhzUBHZluaMllvuGD9RyF7TTEqEnfS4l4l5+c84vDt
+      VmDVxv/dVZJeJEXWk9YT6038j2O0eU3Z6bvkcR0sW2JiG5ZZWoDR4GAbWRJIJ1sz
+      +8VJs3scLY3/PbE/uhS7WE5Y2B+QiwDhriWYRKEu3IQgfO2CmHhkVQ/YqgWtuCaC
+      OUj7GJ0aTubhs2NcEzQOh+RL15DFay1CdcGgZvmcIlzoQmoQEmARCNVXsJJLnLFK
+      +0MQaG4KEt6Qy70rsNACSirtYOZSdEKt1Afr0BXI6KTSFfe6RJYj0FTdAeVvR+T/
+      HaHLFFNgpQFL4cuBkuYgOFkpAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+      DQYJKoZIhvcNAQELBQADggEBAIBfEbB/sWxLMo+3miWacbrsDClkgzC/+X4uWphT
+      aCMgQ7jMMVCwvj/tSUBLt0J1vI5ksEwCvgtb7PTB0G68PJ7WxuTzkwH231eUKo4Q
+      HVd7xrUpgcLmIUovdlf7G1cpuxIJoxFeOjS+I+YM3ozQJ8RLrVcg+89RGGZAahKV
+      hsemkKJ2mH8tF8pTkUWOAOMGvxDES9+KTGt8iuEYaxjknSC/jzwBD2pp8rjjDeMO
+      K7b29WTlAZ4kqtR7rUrDzrSJKAcjYK3PCw8DJh30QHMYIwy15awARgu7ma97196f
+      gbjyys+B0jxMjfzX/9qLV84lyuZzZ4k2As6bY1JAGue+oMI=
       -----END CERTIFICATE-----
   backend.adminEmail: 
     type: string
     description: Your initial Admin user.
-    default: admin@client.com
+    default: vadmin@vectice.com
   backend.defaultPassword: 
     type: string
     description: Your initial Admin password
@@ -70,11 +292,11 @@ properties:
   backend.projectStorage.gcp.jsonkey:
     type: string
     description: Your JSON key to access your Vectice GCS Bucket, encoded in base64
-    default: ewogr54r654g654rgrrhreglnkguirehgrheguihreuihuirehguihvnez
+    default: ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3VudCIsCiAgInByb2plY3RfaWQiOiAidmVjdGljZS1wdWJsaWMiLAogICJwcml2YXRlX2tleV9pZCI6ICI4MWIzM2VkMWE3NmQ1NDg4ZDY0NWJlYjlhMTc3OGZiYmUxY2IzZTBmIiwKICAicHJpdmF0ZV9rZXkiOiAiLS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tXG5NSUlFdlFJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0JLY3dnZ1NqQWdFQUFvSUJBUUR3VFpsTnBXekVubW9XXG5saWlRd1U5QUxnR0xVNWY0ZHlvY0x2NlNjaTdaMmUvM2VmdE5ta3B3OUFuc0F3RzJCVG1PZzZsVEUycVBKSjV1XG5idGRkQkR4Rm1VYjNyTmtMZE5PaExuK05hWWVVSUlLK2JzVTVrOUZSWThyYVZQSS9jWnpwMTg1bHBxeVdWKzFpXG5TbXpYU1ZUMjdpNjk0QndLcmJFWnZBbHM1TzJOYUdxYTVyN2o4VEptM1E0TXFtajdYZmpZVmVJcWFISnJQMzRVXG5rVHVFRVNZbU01R0FtVzNjM2FyU1cxT2Fub0s3RmFiUG9WMWEwMmhsVWMyZGF6WFlNekZyRWo3ZFJNaE5rZlFHXG5jdkVneUFGZDhUOGpVbHlaaGJkSEFmUFRVNzQwK1FDZjV5ZEE5OTlncDM4TWxUaUY1Q29oTGd2VjVHVElHNmo3XG5zUGdHRDlVdkFnTUJBQUVDZ2dFQUhzSUg5OWpQT2NGL0djSUJram0wRDZaejJ5WUpneXVaajc3eUpjT0l2S2k1XG5IdWVWbzRLMnVZdDdBNk1FNG92N3FJS3d0eW42anpUa05JVnFlb1R5eEFQUkFoMjFNRksxVGVHNlFOcjdtQm1yXG5NbjNTTDhMOFhWc1ZHV29iRWNUVWpWZnFtcmRCU3dNWkp1WVkxVnVWRFFCQ3Fsb1hyTVE3c1d3UWxzZ2NvZWMyXG5rM1Y3WTE2a2FORWdML1pFYUhLTk9mczloYmpJUldlaFI5V3BSQ1hXTzdyMXBZQm93YVJ4WS8zblRmV3ZZS0lUXG5TWW00VjdCUWczdHdwd0RCZ1BkZVRDNWhDUXFsemc2UHpQR3NGSGlOcUh5T3E0N01sRTQ1cG5iLzZsaXJlSk9rXG54MVVDdGhvU2YyVjJtNTFzeGt0YXdhb25sTzJWZXNYTU5KRUhUKzNHRlFLQmdRRDRMTCtSdXBDaHI3WXZybitHXG5md3B6dzQrVzB4L01UKzJuRzBEYmxzM0I4WnZwb0tWTjNwc1N5NDF5UTB2Yk1SSDBObGYzRStiMUVYLzYxTVRrXG5odGdIMFdQeGpBQzZQZDFSQXVGMW5ZdXBhWWx4WEhVRFRzM2w5NUM0UytYN2JMemRBZUdua1VoejNPQU9MV2xxXG54NkJtVXNCSS9nYnlCQUdxSXdyTHlHMXVzd0tCZ1FEMzRVK1NWVTZSQWJEZTZodnJhNzJ2d25Bb1B4YklYMmlHXG5NYUw3MlZUMVNTdS9lMDI3cmRiVmVmdytSY0tWaGhnbHFjL2RoMTl2b0MxUDZNSGo4eXFSNFBOQU1uZTJGa2xMXG5UaHY0NkJmeWE1SlRhVmZmejlmb211RFBWUTVsMVFpaEU4L2dtNkJUYUJIbmxaTjJHcXRQa0JWUUFHY3hxUW4xXG5meVhrNit0OWxRS0JnRUFPck5QY3FBQlQ3bDZZVitwTFdGTlJJdnIzTzduczE1Yk9mZ3N2L2FRVnpQeWNybzVPXG42eEFLNGxPZjh6QjhsZm5ISFNWMVNhUHdCR3ltQnJ4RjRmVUNveDF4MmE0NDBhdGJadjZJejhmR3FlZE15aGMwXG5mQWpqd2NNUU5DaVZoSm8zSmh1dWNGa1hwZTJDNHpiZ21CSlJRYmlWZVExMjQwY2JER3BWTFlucEFvR0JBTEZRXG5XcnN5aXFEdnRMWEFnWGhGK2NwZ0xCcWVCbzRPc1paTXEybThiU21JemVLTE1XK3ZTcDRxUkdYSFFRbjBnaEZ2XG5CMkpRRTlTbG44UXBtNGlUeVQvUXlqQ0I2V0EzVVBhdFNSVWo4UDFZTmJPMUIwYnlSbC85YWhMbHBRYnkvTms4XG5jdGNZZS9jdDJxRHVQaTJkcGkyanc1c1dycnEzVUloc0M0OVZzMzZCQW9HQU5FTkFmK3VsdjcvcUYreExzZ2FzXG5VaG0zRHBzNDlyWjNIMEFxMGQxa2lhL2h3U1RkdGtrOXFrdkp4bjBobXliTHJVYjV2VnQ3SmtkN29qZERISkUrXG5DRXV2WW1CclpCekR6Y25WNldDSWNjNXRyT3psUDFzNHVHcEptNk5YNzUwN2xaRGNpY0lVWUdxb1JGcDB5TW9BXG41ZzlPbXQ5RlFhQXJ3OXFIYUhBbHpjND1cbi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS1cbiIsCiAgImNsaWVudF9lbWFpbCI6ICJ2ZWN0aWNlLXNlcnZpY2UtYWNjb3VudEB2ZWN0aWNlLXB1YmxpYy5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsCiAgImNsaWVudF9pZCI6ICIxMDAxOTEyMzgyOTkyNDg0NDg0NTYiLAogICJhdXRoX3VyaSI6ICJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20vby9vYXV0aDIvYXV0aCIsCiAgInRva2VuX3VyaSI6ICJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsCiAgImF1dGhfcHJvdmlkZXJfeDUwOV9jZXJ0X3VybCI6ICJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjEvY2VydHMiLAogICJjbGllbnRfeDUwOV9jZXJ0X3VybCI6ICJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9yb2JvdC92MS9tZXRhZGF0YS94NTA5L3ZlY3RpY2Utc2VydmljZS1hY2NvdW50JTQwdmVjdGljZS1wdWJsaWMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLAogICJ1bml2ZXJzZV9kb21haW4iOiAiZ29vZ2xlYXBpcy5jb20iCn0K
   backend.projectStorage.bucket:
     type: string
     description: Your Vectice GCS Bucket
-    default: my-vectice-bucket
+    default: vectice-mp-bucket
   backend.smtpTransporter:
     type: string
     description: Enable email notifications or not, set to true or false
@@ -82,7 +304,7 @@ properties:
   backend.smtpOptions.host:
     type: string
     description: Your SMTP host. eg. smtp.google.com
-    default: smtp.example.net
+    default: smtp.sendgrid.net
   backend.smtpOptions.port:
     type: string
     description: Your SMTP port. eg. 2525
@@ -94,7 +316,7 @@ properties:
   backend.smtpOptions.password:
     type: string
     description: Your SMTP password. eg. MySuperPassword123!
-    default: d4vsd4v65d46ds654564vdsdvd45464
+    default: SG.i-apikey
   backend.smtpOptions.secure:
     type: string
     description: Set to true to enable HTTPS protocol, or false for HTTP protocol
@@ -102,6 +324,10 @@ properties:
 required:
 - name
 - namespace
+- internal.ca.cert
+- internal.ca.key
+- internal.ingress.cert
+- internal.ingress.key
 - global.appUrl
 - global.database.host
 - global.database.username
