@@ -2,7 +2,7 @@
 
 - [ ] **CI**: Content in the CI/CD workflows
 - [ ] **Helm**: Templates or values to deploy Vectice full stack 
-- [ ] **Terraform**: Creations of Infrastructure on GCP, AWS or Azure
+- [ ] **Terraform**: Creations of Infrastructure on GCP
 - [ ] **Documentation**: Update on User Guide or documentation in helm templates
 
 ## Description
