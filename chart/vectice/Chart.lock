@@ -1,12 +1,12 @@
 dependencies:
 - name: keycloak
   repository: oci://gcr.io/vectice-public/vectice/helm
-  version: "234.8"
+  version: 234.10.0
 - name: frontend
   repository: oci://gcr.io/vectice-public/vectice/helm
-  version: "234.8"
+  version: 234.10.0
 - name: backend
   repository: oci://gcr.io/vectice-public/vectice/helm
-  version: "234.8"
-digest: sha256:ee62177ad4c89db70f8403d22ae828c5981a034d0ccc42dd5014226c596c39d1
-generated: "2024-01-09T15:59:06.253012681+01:00"
+  version: 234.10.1
+digest: sha256:76c7d358896d6ba02a87e5c4798e9051bc64bcbbec84e96469206e89475992de
+generated: "2024-01-19T11:25:54.473341376+01:00"

@@ -45,14 +45,10 @@ global:
 
 frontend:
   fullnameOverride: vectice-frontend
-  autoscaling:
-    enabled: false
 
 # Backend subchart values
 backend:
   fullnameOverride: vectice-backend
-  autoscaling:
-    enabled: false
   # set the admin email value to the init user you want, that will also be an org admin. adminemail + defaultPassword values will be used at first connection 
   adminEmail: vadmin@testclient.com
   # String to override default password, the requirements are At least 8 characters, 1 upper case, 1 lower case, 1 digit and 1 special character
@@ -71,8 +67,6 @@ backend:
     password: ""
 
 keycloak:
-  autoscaling:
-    enabled: false
   fullnameOverride: vectice-keycloak
 
 ingress:
