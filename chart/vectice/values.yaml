@@ -43,6 +43,14 @@ global:
       session_max_lifespan: 2592000
       access_token_lifespan: 604800
 
+internal:
+  ca:
+    key: ""
+    cert: ""
+  ingress:
+    key: ""
+    cert: ""
+
 frontend:
   fullnameOverride: vectice-frontend
 
