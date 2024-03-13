@@ -4,3 +4,5 @@ schema_template.yaml
 terraform/gcp/marketplace
 README_internal.md
 chart/vectice/charts
+
+documentation

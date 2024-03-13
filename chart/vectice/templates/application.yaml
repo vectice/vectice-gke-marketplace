@@ -6,11 +6,13 @@ metadata:
   labels:
     app.kubernetes.io/name: "{{ .Release.Name }}"
   annotations:
+    kubernetes-engine.cloud.google.com/icon: >-
+      data:image/png;base64,{{ .Files.Get "logo.png" | b64enc }}
     marketplace.cloud.google.com/deploy-info: '{"partner_id": "vectice", "product_id": "vectice", "partner_name": "vectice"}'
 spec:
   descriptor:
     type: vectice
-    version: '234.8.2'
+    version: '234.10.0'
   selector:
     matchLabels:
       app.kubernetes.io/instance: "{{ .Release.Name }}"
@@ -32,3 +34,5 @@ spec:
     kind: ConfigMap
   - group: apps
     kind: Issuer
+  - group: apps
+    kind: HorizontalPodAutoscaler
