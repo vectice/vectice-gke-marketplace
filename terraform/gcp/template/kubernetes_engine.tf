@@ -13,7 +13,7 @@ resource "google_container_cluster" "vectice" {
   ip_allocation_policy {}
 
   network = "projects/${var.project_id}/global/networks/${var.network}"
-  subnetwork = "projects/${var.project_id}/regions/${var.region}/subnetworks/${var.subnetwork}"
+  subnetwork = google_compute_subnetwork.subnet1.id
 
   enable_shielded_nodes = true
 

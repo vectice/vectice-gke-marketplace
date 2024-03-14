@@ -19,16 +19,8 @@ resource "google_service_networking_connection" "vectice" {
 
 # Define subnet 1
 resource "google_compute_subnetwork" "subnet1" {
-  name          = "${var.subnetwork}1"
+  name          = "${var.subnetwork}"
   ip_cidr_range = var.cidr_range_subnet1
-  region        = var.region # Change this to your desired region
-  network       = google_compute_network.vectice_vpc.self_link
-}
-
-# Define subnet 2
-resource "google_compute_subnetwork" "subnet2" {
-  name          = "${var.subnetwork}2"
-  ip_cidr_range = var.cidr_range_subnet2
   region        = var.region # Change this to your desired region
   network       = google_compute_network.vectice_vpc.self_link
 }
