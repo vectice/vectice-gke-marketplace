@@ -1,12 +1,10 @@
 ---
 global:
   repository:
-    baseURL: gcr.io
     # Project ID of the Container Repository. value is provided by Vectice team.
-    projectId: vectice-public
+    baseURLandprojectId: us-docker.pkg.dev/vectice-public
     # Secrets that will be used to pull images, secret created before in documentation
-    secrets:
-      - vectice-gcr-secrets
+    secrets: [vectice-gar-secrets]
   openshift:
     enabled: false
   cloudProvider: "gcp"

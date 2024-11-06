@@ -51,17 +51,24 @@ spec:
       paths:
       - backend:
           service:
-            name: vectice-frontend
+            name: vectice-backend
             port:
-              number: 3000
-        path: /*
+              number: 4000
+        path: /subscriptions
         pathType: ImplementationSpecific
       - backend:
           service:
             name: vectice-keycloak
             port:
               number: 4430
-        path: /auth/*
+        path: /auth/resources/*
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: vectice-keycloak
+            port:
+              number: 4430
+        path: /auth/realms/*
         pathType: ImplementationSpecific
       - backend:
           service:
@@ -82,13 +89,13 @@ spec:
             name: vectice-backend
             port:
               number: 4000
-        path: /subscriptions
+        path: /metadata/*
         pathType: ImplementationSpecific
       - backend:
           service:
-            name: vectice-backend
+            name: vectice-frontend
             port:
-              number: 4000
-        path: /metadata/*
+              number: 3000
+        path: /*
         pathType: ImplementationSpecific
 {{- end }}
