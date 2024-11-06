@@ -5,7 +5,7 @@ GKE's vectice deployments through GCP Marketplace
 
 ### terraform
 
-Terraform ,templates to create the infrastructure necessary on GCP to run Vectice
+Terraform templates to create the infrastructure necessary on GCP to run Vectice
 
 ### chart and schema.yaml
 
