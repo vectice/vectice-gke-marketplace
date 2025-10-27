@@ -1,12 +1,12 @@
 dependencies:
 - name: keycloak
   repository: oci://us-docker.pkg.dev/vectice-public/vectice/helm
-  version: 243.12.0
+  version: 253.10.0
 - name: frontend
   repository: oci://us-docker.pkg.dev/vectice-public/vectice/helm
-  version: 244.4.1
+  version: 254.2.2
 - name: backend
   repository: oci://us-docker.pkg.dev/vectice-public/vectice/helm
-  version: 244.4.1
+  version: 254.2.2
 digest: sha256:7c14ffc8a15cc7e3656d40709aa5f29d1fb1805b9925ba4a79103d52050c52c2
 generated: "2024-11-05T14:18:49.590281889+01:00"
