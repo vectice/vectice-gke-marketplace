@@ -4,9 +4,9 @@ dependencies:
   version: 253.10.0
 - name: frontend
   repository: oci://us-docker.pkg.dev/vectice-public/vectice/helm
-  version: 254.2.2
+  version: 254.4.0
 - name: backend
   repository: oci://us-docker.pkg.dev/vectice-public/vectice/helm
-  version: 254.2.2
-digest: sha256:7c14ffc8a15cc7e3656d40709aa5f29d1fb1805b9925ba4a79103d52050c52c2
-generated: "2024-11-05T14:18:49.590281889+01:00"
+  version: 254.4.0
+digest: sha256:e54eef94208506bc1b7ebbf51f46a2dfcc8eeb419eee0a03650bd1c7fc91122e
+generated: "2025-10-27T16:33:24.191630807+01:00"

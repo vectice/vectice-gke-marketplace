@@ -12,7 +12,7 @@ metadata:
 spec:
   descriptor:
     type: vectice
-    version: '254.2.2'
+    version: '254.4.0'
   selector:
     matchLabels:
       app.kubernetes.io/instance: "{{ .Release.Name }}"
