@@ -71,6 +71,8 @@ backend:
     secure: "true"
     user: "apikey"
     password: ""
+  externals:
+    llm_config: ""
 
 keycloak:
   fullnameOverride: vectice-keycloak

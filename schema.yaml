@@ -122,6 +122,10 @@ properties:
     type: string
     description: Set to true to enable HTTPS protocol, or false for HTTP protocol
     default: 'true'
+  backend.externals.llm_conf:
+    type: string
+    description: Base64 encoded JSON string to configure LLM providers. Contact Vectice support for more details.
+    default: 'eyJkZWZhdWx0Ijp7InR5cGUiOiJsbGFtYTQtc2NvdXQtMTdiIiwiY29ubmVjdGlvbiI6eyJ0eXBlIjoib3BlbmFpIiwib3BlbkFpIjp7Im1vZGVsIjoibWV0YS1sbGFtYS9sbGFtYS00LXNjb3V0LTE3Yi0xNmUtaW5zdHJ1Y3QiLCJlbmRwb2ludHNXaXRoU2VjcmV0cyI6W3siZW5kcG9pbnQiOiJodHRwczovL2FwaS5ncm9xLmNvbS9vcGVuYWkvdjEiLCJzZWNyZXQiOiJ4eHgifV19fX19'
 
 required:
 - name
